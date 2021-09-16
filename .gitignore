@@ -21,3 +21,12 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# VSCode
+.vscode
+.history
+.cache
+*.code-workspace
+
+# JetBrains IDE
+.idea/
