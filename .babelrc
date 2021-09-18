@@ -1,15 +1,6 @@
 {
   "presets": ["@babel/typescript", "@babel/react"],
   "plugins": [
-    [
-      "module-resolver",
-      {
-        "alias": {
-          "~": "./src",
-          "@i18n": "./src/i18n"
-        }
-      }
-    ],
     "@babel/plugin-syntax-jsx",
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-nullish-coalescing-operator",
