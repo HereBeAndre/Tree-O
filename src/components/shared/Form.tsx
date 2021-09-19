@@ -1,4 +1,6 @@
-import { Form, Button, Row, Col } from 'antd';
+import { Form, Button, Row } from 'antd';
+
+import { CSSProperties } from 'react';
 
 interface IFormProps {
   onFormSubmit: (values) => void;
@@ -6,6 +8,7 @@ interface IFormProps {
   children: React.ReactNode;
   disabled?: boolean;
   submitButtonText: string;
+  customStyle?: CSSProperties;
 }
 
 const CustomForm: React.FC<IFormProps> = ({
@@ -14,28 +17,31 @@ const CustomForm: React.FC<IFormProps> = ({
   children,
   disabled,
   submitButtonText,
+  customStyle = { width: '100%' },
 }) => {
   const [form] = Form.useForm();
 
   return (
-    <Row>
-      <Col>
-        <Form form={form} name="custom-form" layout="vertical" onFinish={onFormSubmit}>
-          {children}
-          <Row justify="end">
-            <Button
-              size="large"
-              type="primary"
-              htmlType="submit"
-              loading={loading}
-              disabled={disabled}
-            >
-              {submitButtonText}
-            </Button>
-          </Row>
-        </Form>
-      </Col>
-    </Row>
+    <Form
+      form={form}
+      name="custom-form"
+      layout="vertical"
+      onFinish={onFormSubmit}
+      style={customStyle}
+    >
+      {children}
+      <Row justify="end">
+        <Button
+          size="middle"
+          type="primary"
+          htmlType="submit"
+          loading={loading}
+          disabled={disabled}
+        >
+          {submitButtonText}
+        </Button>
+      </Row>
+    </Form>
   );
 };
 

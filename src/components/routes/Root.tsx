@@ -1,7 +1,7 @@
 import { Router, Switch, Route } from 'react-router-dom';
 import history from '../../history';
-import Stepper from '../shared/Stepper';
-import Summary from '../shared/Summary';
+import Stepper from '../pages/Stepper';
+import Summary from '../pages/Summary';
 import { Routes } from './urls';
 
 const Root = () => {
