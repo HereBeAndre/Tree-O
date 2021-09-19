@@ -1,18 +1,15 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Router, Switch, Route } from 'react-router-dom';
+import history from '../../history';
 import Stepper from '../shared/Stepper';
 import Summary from '../shared/Summary';
 import { Routes } from './urls';
 
 const Root = () => {
   return (
-    <Router>
+    <Router history={history}>
       <Switch>
-        <Route path={Routes.HOME} exact>
-          <Stepper />
-        </Route>
-        <Route path={Routes.SUMMARY} exact>
-          <Summary />
-        </Route>
+        <Route path={Routes.HOME} component={Stepper} exact />
+        <Route path={Routes.SUMMARY} component={Summary} exact />
       </Switch>
     </Router>
   );
