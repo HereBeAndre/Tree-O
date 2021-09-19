@@ -6,7 +6,7 @@ import { Routes } from '../routes/urls';
 
 import { formDataActions, formDataSelectors, uiActions } from '../../store/all';
 
-import SuccessDisplay from './SuccessDisplay';
+import SuccessDisplay from '../shared/SuccessDisplay';
 
 import { TFormData } from '../../schemas/formData/formData_d';
 
