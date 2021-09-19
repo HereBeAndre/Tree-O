@@ -1,3 +1,5 @@
+import storage from 'redux-persist/lib/storage';
+
 import { TGenericAction } from '../../schemas/actions_d';
 import { TFormStep, TState } from '../../schemas/ui/ui_d';
 import { TErrorType } from '../../schemas/errors_d';
@@ -32,6 +34,9 @@ const reducers = (state = initialDataState, action: TGenericAction<unknown>): TS
         error: initialDataState.error,
       };
     }
+    case types.SET_CLEAR_UI_DATA:
+      storage.removeItem('persist:root');
+      return initialDataState;
     default:
       return state;
   }
