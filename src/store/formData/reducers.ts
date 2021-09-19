@@ -1,3 +1,4 @@
+import storage from 'redux-persist/lib/storage';
 import {
   State,
   TStepOneFormValues,
@@ -34,9 +35,23 @@ const reducers = (state = dataInitialState, action: TGenericAction<unknown>): St
       return { ...state, secondStepFormMeta: action.payload as TDataMeta };
     case types.SET_STEP_THREE_FORM_META:
       return { ...state, thirdStepFormMeta: action.payload as TDataMeta };
+    case types.SET_CLEAR_FORM_DATA:
+      storage.removeItem('persist:root');
+      return dataInitialState;
     default:
       return state;
   }
 };
 
 export default reducers;
+
+// const rootReducer = (state, action) => {
+//   if (action.type === SIGNOUT_REQUEST) {
+//     // for all keys defined in your persistConfig(s)
+//     storage.removeItem('persist:root');
+//     // storage.removeItem('persist:otherKey')
+
+//     return appReducer(undefined, action);
+//   }
+//   return appReducer(state, action);
+// };

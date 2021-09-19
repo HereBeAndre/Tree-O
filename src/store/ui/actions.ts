@@ -18,8 +18,13 @@ const clearError = (): TSimpleAction => ({
   type: types.CLEAR_ERROR,
 });
 
+const setClearUiData = (): TSimpleAction => ({
+  type: types.SET_CLEAR_UI_DATA,
+});
+
 export default {
   setFormStep,
   setError,
   clearError,
+  setClearUiData,
 };

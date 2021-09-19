@@ -16,6 +16,8 @@ const SET_STEP_ONE_FORM_META = `${prefix}.SET_STEP_ONE_FORM_META`;
 const SET_STEP_TWO_FORM_META = `${prefix}.SET_STEP_TWO_FORM_META`;
 const SET_STEP_THREE_FORM_META = `${prefix}.SET_STEP_THREE_FORM_META`;
 
+const SET_CLEAR_FORM_DATA = `${prefix}.SET_CLEAR_FORM_DATA`;
+
 export default {
   prefix,
   DO_SAVE_FORM_VALUES,
@@ -27,4 +29,6 @@ export default {
   SET_STEP_ONE_FORM_META,
   SET_STEP_TWO_FORM_META,
   SET_STEP_THREE_FORM_META,
+
+  SET_CLEAR_FORM_DATA,
 };

@@ -1,17 +1,14 @@
 import { Result, Button, Descriptions, Card, Row, Col } from 'antd';
-import history from '../../history';
 import { TFormData } from '../../schemas/formData/formData_d';
 
 import { generateRandomXDigitsNumber } from '../../utils/functions';
-import { Routes } from '../routes/urls';
 
 interface ISuccessDisplayProps {
   data: TFormData[];
+  onBack: () => void;
 }
 
-const SuccessDisplay: React.FC<ISuccessDisplayProps> = ({ data }) => {
-  const onBackHomeClick = () => history.push(Routes.HOME);
-
+const SuccessDisplay: React.FC<ISuccessDisplayProps> = ({ data, onBack }) => {
   return (
     <Row>
       <Col span={12} offset={6}>
@@ -38,7 +35,7 @@ const SuccessDisplay: React.FC<ISuccessDisplayProps> = ({ data }) => {
               16,
             )} - Thanks for helping our Planet!`}
             extra={[
-              <Button key="routeToHome" onClick={onBackHomeClick}>
+              <Button key="routeToHome" onClick={onBack}>
                 Back to Home
               </Button>,
             ]}
