@@ -1,4 +1,4 @@
-import { Input, Row, Col, Form, Card, Typography } from 'antd';
+import { Input, Row, Col, Form, Card, Typography, Select } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { formDataActions, formDataSelectors, uiSelectors } from '../../store/all';
@@ -11,11 +11,18 @@ import {
 
 import Navbar from '../layout/Navbar';
 import CustomForm from '../shared/Form';
-
-import { EStatus } from '../../schemas/generics_d';
 import FormSteps from '../shared/Steps';
 
+import { EStatus } from '../../schemas/generics_d';
+
+import { mockGeoData, speciesData } from '../../utils/mockData';
+
 const { Title } = Typography;
+const { Option } = Select;
+
+const renderOptionComponent = (data: string[]) => {
+  return data.map((d) => <Option value={d}>{d}</Option>);
+};
 
 const Stepper: React.FC = () => {
   const dispatch = useDispatch();
@@ -75,11 +82,12 @@ const Stepper: React.FC = () => {
                 label="Where would you like to plant your tree?"
                 rules={[{ required: true, message: 'Please select a country' }]}
               >
-                <Input
-                  autoComplete="off"
-                  placeholder="Enter a country"
+                <Select
                   disabled={firstStepFormMetaStatus !== EStatus.SUCCESS}
-                />
+                  placeholder="Select a country"
+                >
+                  {renderOptionComponent(mockGeoData)}
+                </Select>
               </Form.Item>
             </CustomForm>
             <CustomForm
@@ -90,14 +98,15 @@ const Stepper: React.FC = () => {
             >
               <Form.Item
                 name="tree"
-                label="Choose a tree"
+                label="Choose a species"
                 rules={[{ required: true, message: 'You must pick a tree' }]}
               >
-                <Input
-                  autoComplete="off"
-                  placeholder="Papaya, Lemon, Neem, etc..."
+                <Select
                   disabled={secondStepFormMetaStatus !== EStatus.SUCCESS}
-                />
+                  placeholder="Select a species"
+                >
+                  {renderOptionComponent(speciesData)}
+                </Select>
               </Form.Item>
             </CustomForm>
           </Card>

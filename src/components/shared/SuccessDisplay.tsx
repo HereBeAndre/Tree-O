@@ -34,7 +34,7 @@ const SuccessDisplay: React.FC<ISuccessDisplayProps> = ({ data, onBack }) => {
                           {' '}
                           {i.country}
                         </Descriptions.Item>
-                        <Descriptions.Item label="Selected tree"> {i.tree}</Descriptions.Item>
+                        <Descriptions.Item label="Selected species"> {i.tree}</Descriptions.Item>
                       </>
                     );
                   })}
