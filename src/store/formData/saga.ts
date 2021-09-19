@@ -15,6 +15,8 @@ import { formDataActions, uiActions, uiSelectors } from '../all';
 import { EFormStep } from '../../utils/constants';
 
 import types from './types';
+import { Routes } from '../../components/routes/urls';
+import history from '../../history';
 
 // -------- WORKERS --------
 
@@ -52,6 +54,7 @@ function* doSaveStepThreeForm(formValues: TStepThreeFormValues) {
     yield put(formDataActions.setStepThreeFormData(res));
     yield put(formDataActions.setStepThreeFormMeta.setSuccess(''));
     yield put(uiActions.setFormStep(currentFormStep + 1));
+    yield history.push(Routes.SUMMARY);
   } catch (err) {
     console.log(err);
   }
