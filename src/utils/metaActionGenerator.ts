@@ -9,8 +9,6 @@ export type MetaActionGeneratorType<T> = {
   setLoading: () => TGenericAction<TDataMeta<T>>;
   setSuccess: (message: string) => TGenericAction<TDataMeta<T>>;
   setError: (error: Error) => TGenericAction<TDataMeta<T>>;
-  reset: () => TGenericAction<TDataMeta<T>>;
-  setEdit: (item: T) => TGenericAction<TDataMeta<T>>;
 };
 
 export const defaultDataMeta: TDataMeta = {

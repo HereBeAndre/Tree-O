@@ -18,8 +18,7 @@ import types from './types';
 import { Routes } from '../../components/routes/urls';
 import history from '../../history';
 
-// -------- WORKERS --------
-
+// ------ WORKERS ------
 function* doSaveStepOneForm(formValues: TStepOneFormValues) {
   const currentFormStep = yield select(uiSelectors.getFormStep);
   try {
@@ -79,8 +78,7 @@ function* doSaveFormValues(action: TGenericAction<TSaveFormValues>) {
   }
 }
 
-// -------- WATCHERS --------
-
+// ------ WATCHERS ------
 function* watchDoSaveFormValues() {
   yield takeLatest(types.DO_SAVE_FORM_VALUES, doSaveFormValues);
 }
