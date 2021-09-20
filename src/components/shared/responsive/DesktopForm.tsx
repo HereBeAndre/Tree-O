@@ -23,13 +23,13 @@ import i18n from '../../../i18n';
 const { Title } = Typography;
 const { Option } = Select;
 
-const STEP_ICON_LIST = [
+export const STEP_ICON_LIST = [
   <SmileTwoTone twoToneColor="#3ed367" style={{ fontSize: '2rem' }} />,
   <HomeTwoTone twoToneColor="#3ed367" style={{ fontSize: '2rem' }} />,
   <HeartTwoTone twoToneColor="#3ed367" style={{ fontSize: '2rem' }} />,
 ];
 
-const renderOptionComponent = (data: string[]) => {
+export const renderOptionComponent = (data: string[]) => {
   return data.map((d) => <Option value={d}>{d}</Option>);
 };
 
@@ -59,8 +59,9 @@ const DesktopForm: React.FC = () => {
       <Col xs={0} sm={0} md={8} lg={8} xl={6} style={{ minHeight: '100vh', padding: '4rem' }}>
         <FormSteps
           stepNumber={currentFormStep}
-          stepData={STEP_ICON_LIST}
+          stepIcon={STEP_ICON_LIST}
           stepsDirection="vertical"
+          style={{ minHeight: '100%' }}
         />
       </Col>
       <Col xs={24} sm={24} md={16} lg={16} xl={14} style={{ padding: '4rem' }}>
