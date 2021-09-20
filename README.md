@@ -1,6 +1,47 @@
-# Getting Started with Create React App
+![Logo](./src/resources/logo_green.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tree-O
+
+> This web app allows a user to plant and adopt a tree by providing some basic information through a simple and quick form.
+
+## Table of Contents
+
+- [Tree-O](#tree-o)
+  - [Table of Contents](#table-of-contents)
+  - [General Information](#general-information)
+  - [Technologies Used](#technologies-used)
+  - [Install](#install)
+  - [Available Scripts](#available-scripts)
+    - [`npm start`](#npm-start)
+    - [`npm test`](#npm-test)
+    - [`npm run build`](#npm-run-build)
+    - [`npm run eject`](#npm-run-eject)
+  - [Features](#features)
+  - [Screenshots](#screenshots)
+  - [Room for Improvement](#room-for-improvement)
+  - [License](#license)
+
+## General Information
+
+- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Technologies Used
+
+> - **node** - version 14.17.5 (https://nodejs.org/it/)
+> - **typescript** - version 4.4.3 (https://github.com/microsoft/TypeScript)
+> - **react** - version 17.0.2 (https://github.com/facebook/react)
+> - **react-router-dom** - version 5.2.0 (https://reactrouter.com/)
+> - **react-responsive** - version 9.0.0-beta.4 (https://github.com/reduxjs/react-redux)
+> - **redux** - version 4.1.1 (https://github.com/reduxjs/redux)
+> - **redux-saga** - version 1.1.3 (https://github.com/redux-saga/redux-saga)
+> - **redux-persist** - version 6.0.0 (https://github.com/rt2zz/redux-persist)
+> - **redux-devtools-extension** - version 2.13.9 (https://github.com/zalmoxisus/redux-devtools-extension)
+> - **antd** - version 4.16.13 (https://ant.design/)
+
+## Install
+
+The complete list of dependencies is included in `./package-lock.json`.\
+Run `npm install` to install all dependencies.
 
 ## Available Scripts
 
@@ -39,8 +80,34 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+> - App routing is handled by react-router;
+> - react-responsive handles component rendering based on media queries;
+> - The redux store is the single source of truth, containing the entire app state;
+> - redux-devtools-extension provides visual reference of the app state and helps with debugging;
+> - redux-persist persists and rehydrates the redux store;
+> - redux-saga handles async operations and side-effects;
+> - antd as UI framework.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Screenshots
+
+![Home](./src/resources/screenshot_home.png)
+![Summary](./src/resources/screenshot_summary.png)
+
+## Room for Improvement
+
+Todo:
+
+- [ ] Implement custom router component and integrate it with redux store;
+- [ ] Add CSS modules and remove inline styles;
+- [ ] Install and configure `husky` (https://github.com/typicode/husky).
+
+Known bugs:
+
+- [ ] Currently there's no way to go back to previous form steps;
+- [ ] Fix height of Home page.
+
+## License
+
+This project is open source.
