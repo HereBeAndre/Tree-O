@@ -15,7 +15,7 @@ interface ISuccessDisplayProps {
 const SuccessDisplay: React.FC<ISuccessDisplayProps> = ({ data, onBack }) => {
   return (
     <>
-      <Navbar />
+      <Navbar showExtraActions={false} />
       <Row justify="center" align="middle" style={{ height: '80vh' }}>
         <Col xs={24} sm={24} md={14} lg={14} xl={10}>
           <Card>

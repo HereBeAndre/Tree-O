@@ -1,42 +1,29 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Input, Row, Col, Form, Card, Typography, Select } from 'antd';
-import { SmileTwoTone, HomeTwoTone, HeartTwoTone } from '@ant-design/icons';
+import { Col, Form, Input, Select, Card, Typography } from 'antd';
 
-import { formDataActions, formDataSelectors, uiSelectors } from '../../store/all';
+import { formDataActions, formDataSelectors, uiSelectors } from '../../../store/all';
 
 import {
   TStepOneFormValues,
   TStepThreeFormValues,
   TStepTwoFormValues,
-} from '../../schemas/formData/formData_d';
+} from '../../../schemas/formData/formData_d';
+import { EStatus } from '../../../schemas/generics_d';
 
-import Navbar from '../layout/Navbar';
-import CustomForm from '../shared/Form';
-import FormSteps from '../shared/Steps';
+import FormSteps from '../Steps';
+import CustomForm from '../Form';
+import { renderOptionComponent, STEP_ICON_LIST } from './DesktopForm';
 
-import { EStatus } from '../../schemas/generics_d';
+import { EFormStep, STEP_TITLE_LIST } from '../../../utils/constants';
+import { mockGeoData, speciesData } from '../../../utils/mockData';
 
-import { mockGeoData, speciesData } from '../../utils/mockData';
-
-import i18n from '../../i18n';
+import i18n from '../../../i18n';
 
 const { Title } = Typography;
-const { Option } = Select;
 
-const STEP_ICON_LIST = [
-  <SmileTwoTone twoToneColor="#3ed367" style={{ fontSize: '2rem' }} />,
-  <HomeTwoTone twoToneColor="#3ed367" style={{ fontSize: '2rem' }} />,
-  <HeartTwoTone twoToneColor="#3ed367" style={{ fontSize: '2rem' }} />,
-];
-
-const renderOptionComponent = (data: string[]) => {
-  return data.map((d) => <Option value={d}>{d}</Option>);
-};
-
-const Stepper: React.FC = () => {
+const MobileForm: React.FC = () => {
   const dispatch = useDispatch();
-
   const currentFormStep = useSelector(uiSelectors.getFormStep);
 
   const firstStepFormMetaStatus = useSelector(formDataSelectors.getFirstStepFormMetaStatus);
@@ -57,13 +44,16 @@ const Stepper: React.FC = () => {
 
   return (
     <>
-      <Navbar />
-      <Row>
-        <Col xs={0} sm={0} md={8} lg={8} xl={6} style={{ minHeight: '100vh', padding: '4rem' }}>
-          <FormSteps stepNumber={currentFormStep} stepData={STEP_ICON_LIST} />
-        </Col>
-        <Col xs={24} sm={24} md={16} lg={16} xl={14} style={{ padding: '4rem' }}>
-          <Card title={<Title level={3}>{i18n.PICK_YOUR_TREE}!</Title>}>
+      <FormSteps
+        stepNumber={currentFormStep}
+        stepIcon={STEP_ICON_LIST}
+        stepsDirection="horizontal"
+        showStepTitle={false}
+        style={{ padding: '1rem 2rem' }}
+      />
+      <Col style={{ padding: '4rem' }}>
+        {currentFormStep === EFormStep.STEP_1 && (
+          <Card title={<Title level={3}>{STEP_TITLE_LIST[0]}</Title>}>
             <CustomForm
               onFormSubmit={onStepOneFormSubmit}
               loading={firstStepFormMetaStatus === EStatus.LOADING}
@@ -78,6 +68,10 @@ const Stepper: React.FC = () => {
                 <Input autoComplete="off" placeholder={i18n.FIRST_NAME_PLACEHOLDER} />
               </Form.Item>
             </CustomForm>
+          </Card>
+        )}
+        {currentFormStep === EFormStep.STEP_2 && (
+          <Card title={<Title level={3}>{STEP_TITLE_LIST[1]}</Title>}>
             <CustomForm
               onFormSubmit={onStepTwoFormSubmit}
               loading={secondStepFormMetaStatus === EStatus.LOADING}
@@ -100,6 +94,10 @@ const Stepper: React.FC = () => {
                 </Select>
               </Form.Item>
             </CustomForm>
+          </Card>
+        )}
+        {currentFormStep === EFormStep.STEP_3 && (
+          <Card title={<Title level={3}>{STEP_TITLE_LIST[2]}</Title>}>
             <CustomForm
               onFormSubmit={onStepThreeFormSubmit}
               loading={thirdStepFormMetaStatus === EStatus.LOADING}
@@ -120,10 +118,10 @@ const Stepper: React.FC = () => {
               </Form.Item>
             </CustomForm>
           </Card>
-        </Col>
-      </Row>
+        )}
+      </Col>
     </>
   );
 };
 
-export default Stepper;
+export default MobileForm;

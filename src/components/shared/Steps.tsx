@@ -1,4 +1,5 @@
 import { Steps } from 'antd';
+import { CSSProperties } from 'react';
 
 import { EFormStep, STEP_TITLE_LIST } from '../../utils/constants';
 
@@ -6,17 +7,27 @@ const { Step } = Steps;
 
 interface IFormSteps {
   stepNumber: EFormStep;
-  stepData: JSX.Element[];
+  stepIcon: JSX.Element[];
+  stepsDirection: 'vertical' | 'horizontal';
+  showStepTitle?: boolean;
+  style?: CSSProperties;
 }
 
-const FormSteps: React.FC<IFormSteps> = ({ stepNumber, stepData }) => {
+const FormSteps: React.FC<IFormSteps> = ({
+  stepNumber,
+  stepIcon,
+  stepsDirection,
+  showStepTitle = true,
+  style,
+}) => {
   return (
-    <Steps direction="vertical" current={stepNumber} style={{ minHeight: '100%' }}>
+    <Steps direction={stepsDirection} current={stepNumber} style={style}>
       {Array.from({ length: 3 }).map((item, i) => (
         <Step
           key={`${STEP_TITLE_LIST[i]}-${i + 1}`}
-          title={STEP_TITLE_LIST[i]}
-          icon={stepData[i]}
+          title={showStepTitle ? STEP_TITLE_LIST[i] : null}
+          icon={stepIcon[i]}
+          style={{ fontSize: '10px' }}
         />
       ))}
     </Steps>
