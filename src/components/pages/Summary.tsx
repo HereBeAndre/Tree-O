@@ -1,18 +1,16 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import history from '../../history';
 
 import { Routes } from '../routes/urls';
 
-import { formDataActions, formDataSelectors, uiActions } from '../../store/all';
+import { formDataSelectors } from '../../store/all';
 
 import SuccessDisplay from '../shared/SuccessDisplay';
 
 import { TFormData } from '../../schemas/formData/formData_d';
 
 const Summary: React.FC = () => {
-  const dispatch = useDispatch();
-
   // ------ Internal State ------
   const [dataSummary, setDataSummary] = useState<TFormData[]>([]);
 
@@ -23,8 +21,6 @@ const Summary: React.FC = () => {
 
   // ------ Callbacks ------
   const onBackHome = () => {
-    dispatch(uiActions.setClearUiData());
-    dispatch(formDataActions.setClearFormData());
     history.push(Routes.HOME);
   };
 
