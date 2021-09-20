@@ -101,7 +101,8 @@ Todo:
 
 - [ ] Implement custom router component and integrate it with redux store;
 - [ ] Add CSS modules and remove inline styles;
-- [ ] Install and configure `husky` (https://github.com/typicode/husky).
+- [ ] Install and configure `husky` (https://github.com/typicode/husky);
+- [ ] Keep input form data on browser refresh.
 
 Known bugs:
 
