@@ -1,4 +1,6 @@
 const prefix = 'UI';
+
+// -------- SET DATA TYPES --------
 const SET_FORM_STEP = `${prefix}.SET_FORM_STEP`;
 const SET_ERROR = `${prefix}.SET_ERROR`;
 const CLEAR_ERROR = `${prefix}.CLEAR_ERROR`;

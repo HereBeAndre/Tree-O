@@ -1,6 +1,5 @@
-import { Form, Button, Row } from 'antd';
-
 import { CSSProperties } from 'react';
+import { Form, Button, Row } from 'antd';
 
 interface IFormProps {
   onFormSubmit: (values) => void;

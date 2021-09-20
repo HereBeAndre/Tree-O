@@ -4,15 +4,13 @@ import Summary from '../pages/Summary';
 import { Routes } from './urls';
 import Home from '../pages/Home';
 
-const Root = () => {
-  return (
-    <Router history={history}>
-      <Switch>
-        <Route path={Routes.HOME} component={Home} exact />
-        <Route path={Routes.SUMMARY} component={Summary} exact />
-      </Switch>
-    </Router>
-  );
-};
+const Root = () => (
+  <Router history={history}>
+    <Switch>
+      <Route path={Routes.HOME} component={Home} exact />
+      <Route path={Routes.SUMMARY} component={Summary} exact />
+    </Switch>
+  </Router>
+);
 
 export default Root;

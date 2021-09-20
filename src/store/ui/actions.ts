@@ -4,6 +4,7 @@ import { TErrorType } from '../../schemas/errors_d';
 import { TGenericAction, TSimpleAction } from '../../schemas/actions_d';
 import { TFormStep } from '../../schemas/ui/ui_d';
 
+// -------- SET DATA --------
 const setFormStep = (formStep: TFormStep): TGenericAction<TFormStep> => ({
   type: types.SET_FORM_STEP,
   payload: formStep,

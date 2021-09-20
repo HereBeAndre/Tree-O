@@ -1,6 +1,6 @@
 export const mockGeoData = ['Kenya', 'Cameroon', 'Ecuador', 'Tanzania', 'Madagascar'];
 
-export const speciesData = [
+export const mockSpeciesData = [
   'Orange',
   'Avocado',
   'Banana',

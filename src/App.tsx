@@ -1,5 +1,4 @@
 import Root from './components/routes/Root';
-import './App.css';
 
 function App() {
   return (

@@ -6,4 +6,5 @@ export default {
   ORDER_NUMBER: 'Order #',
   THANKS: 'Thanks for helping our Planet',
   BACK_HOME: 'Back to Home',
+  FIND_MORE: 'Find More',
 };

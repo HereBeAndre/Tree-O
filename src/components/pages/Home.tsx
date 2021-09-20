@@ -8,31 +8,31 @@ import MobileForm from '../shared/responsive/MobileForm';
 import { Desktop, Mobile, Tablet } from '../../utils/hooks/useMediaQuery';
 import { TREEDOM_URL } from '../../utils/constants';
 
-const Home: React.FC = () => {
-  return (
-    <>
-      <Mobile>
-        <Navbar showExtraActions={false} />
-        <MobileForm />
-      </Mobile>
-      <Tablet>
-        <Navbar showExtraActions>
-          <Button key="findOutMore" size="middle" ghost target="_blank" href={TREEDOM_URL}>
-            Find More
-          </Button>
-        </Navbar>
-        <DesktopForm />
-      </Tablet>
-      <Desktop>
-        <Navbar showExtraActions>
-          <Button key="findOutMore" size="middle" ghost target="_blank" href={TREEDOM_URL}>
-            Find More
-          </Button>
-        </Navbar>
-        <DesktopForm />
-      </Desktop>
-    </>
-  );
-};
+import i18n from '../../i18n';
+
+const Home: React.FC = () => (
+  <>
+    <Mobile>
+      <Navbar showExtraActions={false} />
+      <MobileForm />
+    </Mobile>
+    <Tablet>
+      <Navbar showExtraActions>
+        <Button key="findOutMore" size="middle" ghost target="_blank" href={TREEDOM_URL}>
+          {i18n.FIND_MORE}
+        </Button>
+      </Navbar>
+      <DesktopForm />
+    </Tablet>
+    <Desktop>
+      <Navbar showExtraActions>
+        <Button key="findOutMore" size="middle" ghost target="_blank" href={TREEDOM_URL}>
+          {i18n.FIND_MORE}
+        </Button>
+      </Navbar>
+      <DesktopForm />
+    </Desktop>
+  </>
+);
 
 export default Home;

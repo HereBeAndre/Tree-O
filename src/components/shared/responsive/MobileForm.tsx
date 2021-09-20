@@ -16,7 +16,7 @@ import CustomForm from '../Form';
 import { renderOptionComponent, STEP_ICON_LIST } from './DesktopForm';
 
 import { EFormStep, STEP_TITLE_LIST } from '../../../utils/constants';
-import { mockGeoData, speciesData } from '../../../utils/mockData';
+import { mockGeoData, mockSpeciesData } from '../../../utils/mockData';
 
 import i18n from '../../../i18n';
 
@@ -24,12 +24,14 @@ const { Title } = Typography;
 
 const MobileForm: React.FC = () => {
   const dispatch = useDispatch();
-  const currentFormStep = useSelector(uiSelectors.getFormStep);
 
+  // ------ Selectors ------
+  const currentFormStep = useSelector(uiSelectors.getFormStep);
   const firstStepFormMetaStatus = useSelector(formDataSelectors.getFirstStepFormMetaStatus);
   const secondStepFormMetaStatus = useSelector(formDataSelectors.getSecondStepFormMetaStatus);
   const thirdStepFormMetaStatus = useSelector(formDataSelectors.getThirdStepFormMetaStatus);
 
+  // ------ Callbacks ------
   const onStepOneFormSubmit = (stepOneFormValues: TStepOneFormValues) => {
     dispatch(formDataActions.doSaveFormValues(stepOneFormValues));
   };
@@ -42,6 +44,7 @@ const MobileForm: React.FC = () => {
     dispatch(formDataActions.doSaveFormValues(stepThreeFormValues));
   };
 
+  // ------ JSX return ------
   return (
     <>
       <FormSteps
@@ -113,7 +116,7 @@ const MobileForm: React.FC = () => {
                   disabled={secondStepFormMetaStatus !== EStatus.SUCCESS}
                   placeholder={i18n.SPECIES_PLACEHOLDER}
                 >
-                  {renderOptionComponent(speciesData)}
+                  {renderOptionComponent(mockSpeciesData)}
                 </Select>
               </Form.Item>
             </CustomForm>

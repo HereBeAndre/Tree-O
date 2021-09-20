@@ -44,14 +44,3 @@ const reducers = (state = dataInitialState, action: TGenericAction<unknown>): St
 };
 
 export default reducers;
-
-// const rootReducer = (state, action) => {
-//   if (action.type === SIGNOUT_REQUEST) {
-//     // for all keys defined in your persistConfig(s)
-//     storage.removeItem('persist:root');
-//     // storage.removeItem('persist:otherKey')
-
-//     return appReducer(undefined, action);
-//   }
-//   return appReducer(state, action);
-// };

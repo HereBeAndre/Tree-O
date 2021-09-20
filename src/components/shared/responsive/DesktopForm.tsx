@@ -10,25 +10,26 @@ import {
   TStepThreeFormValues,
   TStepTwoFormValues,
 } from '../../../schemas/formData/formData_d';
+import { EStatus } from '../../../schemas/generics_d';
 
 import CustomForm from '../Form';
 import FormSteps from '../Steps';
 
-import { EStatus } from '../../../schemas/generics_d';
-
-import { mockGeoData, speciesData } from '../../../utils/mockData';
+import { mockGeoData, mockSpeciesData } from '../../../utils/mockData';
 
 import i18n from '../../../i18n';
 
 const { Title } = Typography;
 const { Option } = Select;
 
+// ------ Constants ------
 export const STEP_ICON_LIST = [
   <SmileTwoTone twoToneColor="#3ed367" style={{ fontSize: '2rem' }} />,
   <HomeTwoTone twoToneColor="#3ed367" style={{ fontSize: '2rem' }} />,
   <HeartTwoTone twoToneColor="#3ed367" style={{ fontSize: '2rem' }} />,
 ];
 
+// ------ Helper functions ------
 export const renderOptionComponent = (data: string[]) => {
   return data.map((d) => <Option value={d}>{d}</Option>);
 };
@@ -36,12 +37,13 @@ export const renderOptionComponent = (data: string[]) => {
 const DesktopForm: React.FC = () => {
   const dispatch = useDispatch();
 
+  // ------ Selectors ------
   const currentFormStep = useSelector(uiSelectors.getFormStep);
-
   const firstStepFormMetaStatus = useSelector(formDataSelectors.getFirstStepFormMetaStatus);
   const secondStepFormMetaStatus = useSelector(formDataSelectors.getSecondStepFormMetaStatus);
   const thirdStepFormMetaStatus = useSelector(formDataSelectors.getThirdStepFormMetaStatus);
 
+  // ------ Callbacks ------
   const onStepOneFormSubmit = (stepOneFormValues: TStepOneFormValues) => {
     dispatch(formDataActions.doSaveFormValues(stepOneFormValues));
   };
@@ -54,6 +56,7 @@ const DesktopForm: React.FC = () => {
     dispatch(formDataActions.doSaveFormValues(stepThreeFormValues));
   };
 
+  // ------ JSX return ------
   return (
     <Row>
       <Col xs={0} sm={0} md={8} lg={8} xl={6} style={{ minHeight: '100vh', padding: '4rem' }}>
@@ -117,7 +120,7 @@ const DesktopForm: React.FC = () => {
                 disabled={secondStepFormMetaStatus !== EStatus.SUCCESS}
                 placeholder={i18n.SPECIES_PLACEHOLDER}
               >
-                {renderOptionComponent(speciesData)}
+                {renderOptionComponent(mockSpeciesData)}
               </Select>
             </Form.Item>
           </CustomForm>
