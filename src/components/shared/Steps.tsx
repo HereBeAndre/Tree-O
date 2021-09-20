@@ -7,11 +7,12 @@ const { Step } = Steps;
 interface IFormSteps {
   stepNumber: EFormStep;
   stepData: JSX.Element[];
+  stepsDirection: 'vertical' | 'horizontal';
 }
 
-const FormSteps: React.FC<IFormSteps> = ({ stepNumber, stepData }) => {
+const FormSteps: React.FC<IFormSteps> = ({ stepNumber, stepData, stepsDirection }) => {
   return (
-    <Steps direction="vertical" current={stepNumber} style={{ minHeight: '100%' }}>
+    <Steps direction={stepsDirection} current={stepNumber} style={{ minHeight: '100%' }}>
       {Array.from({ length: 3 }).map((item, i) => (
         <Step
           key={`${STEP_TITLE_LIST[i]}-${i + 1}`}
