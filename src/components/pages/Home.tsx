@@ -26,7 +26,7 @@ const Home: React.FC = () => {
       dispatch(uiActions.setClearUiData());
       dispatch(formDataActions.setClearFormData());
     }
-  }, []);
+  }, [stepThreeFormMetaStatus]);
 
   return (
     <>
