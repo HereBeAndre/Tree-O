@@ -5,6 +5,7 @@ import Navbar from '../layout/Navbar';
 import { TFormData } from '../../schemas/formData/formData_d';
 
 import { generateRandomXDigitsNumber } from '../../utils/functions';
+import i18n from '../../i18n';
 
 interface ISuccessDisplayProps {
   data: TFormData[];
@@ -22,30 +23,31 @@ const SuccessDisplay: React.FC<ISuccessDisplayProps> = ({ data, onBack }) => {
               status="success"
               title={
                 <Descriptions
-                  title="Operation was successful!"
+                  title={`${i18n.OPERATION_SUCCESSFUL}!`}
                   bordered
                   column={{ xxl: 1, xl: 1, lg: 1, md: 1, sm: 1, xs: 1 }}
                 >
                   {data.map((i) => {
                     return (
                       <>
-                        <Descriptions.Item label="Your name"> {i.name}</Descriptions.Item>
-                        <Descriptions.Item label="Destination country">
+                        <Descriptions.Item label={i18n.YOUR_NAME}> {i.name}</Descriptions.Item>
+                        <Descriptions.Item label={i18n.DESTINATION_COUNTRY}>
                           {' '}
                           {i.country}
                         </Descriptions.Item>
-                        <Descriptions.Item label="Selected species"> {i.tree}</Descriptions.Item>
+                        <Descriptions.Item label={i18n.SELECTED_SPECIES}>
+                          {' '}
+                          {i.tree}
+                        </Descriptions.Item>
                       </>
                     );
                   })}
                 </Descriptions>
               }
-              subTitle={`Order number: ${generateRandomXDigitsNumber(
-                16,
-              )} - Thanks for helping our Planet!`}
+              subTitle={`${i18n.ORDER_NUMBER} ${generateRandomXDigitsNumber(16)} - ${i18n.THANKS}!`}
               extra={[
                 <Button key="routeToHome" size="middle" type="primary" onClick={onBack}>
-                  Back to Home
+                  {i18n.BACK_HOME}
                 </Button>,
               ]}
             />
