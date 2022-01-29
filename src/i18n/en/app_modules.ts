@@ -1,5 +1,5 @@
 export default {
-  OPERATION_SUCCESSFUL: 'Operation was successful',
+  OPERATION_SUCCESSFUL: 'Operation completed successfully',
   YOUR_NAME: 'Your name',
   DESTINATION_COUNTRY: 'Destination country',
   SELECTED_SPECIES: 'Selected species',

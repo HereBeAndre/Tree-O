@@ -6,5 +6,4 @@ export enum EFormStep {
 
 export const STEP_TITLE_LIST = ['About you!', 'Where?', 'Pick me!'];
 
-export const TREEDOM_URL =
-  'https://www.treedom.net/en/plant-a-tree?gclid=Cj0KCQjwv5uKBhD6ARIsAGv9a-zIfQo5DkI-upe1tF7HkuL23-uG7i8lnc0HB9ZHyC4ckHYhrLa-HAQaAq4ZEALw_wcB';
+export const GITHUB_URL = 'https://github.com/HereBeAndre';

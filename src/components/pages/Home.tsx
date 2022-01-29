@@ -11,7 +11,7 @@ import DesktopForm from '../shared/responsive/DesktopForm';
 import MobileForm from '../shared/responsive/MobileForm';
 
 import { Desktop, Mobile, Tablet } from '../../utils/hooks/useMediaQuery';
-import { TREEDOM_URL } from '../../utils/constants';
+import { GITHUB_URL } from '../../utils/constants';
 
 import i18n from '../../i18n';
 import { EStatus } from '../../schemas/generics_d';
@@ -35,7 +35,7 @@ const Home: React.FC = () => {
       </Mobile>
       <Tablet>
         <Navbar showExtraActions>
-          <Button key="findOutMore" size="middle" ghost target="_blank" href={TREEDOM_URL}>
+          <Button key="findOutMore" size="middle" ghost target="_blank" href={GITHUB_URL}>
             {i18n.FIND_MORE}
           </Button>
         </Navbar>
@@ -43,7 +43,7 @@ const Home: React.FC = () => {
       </Tablet>
       <Desktop>
         <Navbar showExtraActions>
-          <Button key="findOutMore" size="middle" ghost target="_blank" href={TREEDOM_URL}>
+          <Button key="findOutMore" size="middle" ghost target="_blank" href={GITHUB_URL}>
             {i18n.FIND_MORE}
           </Button>
         </Navbar>
