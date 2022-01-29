@@ -1,19 +1,14 @@
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import history from '../../history';
 
 import { Routes } from '../routes/urls';
 
-import { formDataSelectors } from '../../store/all';
+import { formDataActions, formDataSelectors } from '../../store/all';
 
 import SuccessDisplay from '../shared/SuccessDisplay';
 
-import { TFormData } from '../../schemas/formData/formData_d';
-
 const Summary: React.FC = () => {
-  // ------ Internal State ------
-  const [dataSummary, setDataSummary] = useState<TFormData[]>([]);
-
+  const dispatch = useDispatch();
   // ------ Selectors ------
   const stepOneData = useSelector(formDataSelectors.getFirstStepFormData);
   const stepTwoData = useSelector(formDataSelectors.getSecondStepFormData);
@@ -21,16 +16,17 @@ const Summary: React.FC = () => {
 
   // ------ Callbacks ------
   const onBackHome = () => {
+    dispatch(formDataActions.setClearFormData());
     history.push(Routes.HOME);
   };
 
-  // ------ Side Effects ------
-  useEffect(() => {
-    setDataSummary([{ ...stepOneData, ...stepTwoData, ...stepThreeData }]);
-  }, []);
-
   // ------ JSX return  ------
-  return <SuccessDisplay data={dataSummary} onBack={onBackHome} />;
+  return (
+    <SuccessDisplay
+      data={[{ ...stepOneData, ...stepTwoData, ...stepThreeData }]}
+      onBack={onBackHome}
+    />
+  );
 };
 
 export default Summary;

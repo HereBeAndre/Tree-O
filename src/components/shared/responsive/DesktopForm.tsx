@@ -31,7 +31,11 @@ export const STEP_ICON_LIST = [
 
 // ------ Helper functions ------
 export const renderOptionComponent = (data: string[]) => {
-  return data.map((d) => <Option value={d}>{d}</Option>);
+  return data.map((d) => (
+    <Option value={d} key={d}>
+      {d}
+    </Option>
+  ));
 };
 
 const DesktopForm: React.FC = () => {

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Button } from 'antd';
 
-import { formDataActions, formDataSelectors, uiActions } from '../../store/all';
+import { formDataSelectors, uiActions } from '../../store/all';
 
 import Navbar from '../layout/Navbar';
 
@@ -24,7 +24,6 @@ const Home: React.FC = () => {
   useEffect(() => {
     if (stepThreeFormMetaStatus === EStatus.SUCCESS) {
       dispatch(uiActions.setClearUiData());
-      dispatch(formDataActions.setClearFormData());
     }
   }, [stepThreeFormMetaStatus]);
 
