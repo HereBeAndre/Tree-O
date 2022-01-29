@@ -18,6 +18,8 @@
     - [`npm run eject`](#npm-run-eject)
   - [Features](#features)
   - [Screenshots](#screenshots)
+    - [Desktop Version](#desktop-version)
+    - [Mobile Version](#mobile-version)
   - [Room for Improvement](#room-for-improvement)
   - [License](#license)
 
@@ -92,8 +94,15 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## Screenshots
 
+### Desktop Version
+
 ![Home](./src/resources/screenshot_home.png)
 ![Summary](./src/resources/screenshot_summary.png)
+
+### Mobile Version
+
+![MobileHome](src/resources/screenshot_home_mobile.png)
+![MobileSummary](src/resources/screenshot_summary_mobile.png)
 
 ## Room for Improvement
 
