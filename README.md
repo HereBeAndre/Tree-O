@@ -120,4 +120,4 @@ Known bugs:
 
 ## License
 
-This project is open source.
+This project is licensed under the terms of the MIT license.
